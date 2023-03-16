@@ -15,12 +15,12 @@
 		</classes>
 	</test>
 
-	<!--<test name="AccountsPage Test">
+	<test name="AccountsPage Test">
 		<classes>
 			<class name="com.qa.opencart.tests.AccountsPageTest" />
 		</classes>
 	</test>
-	 <test name="ProductPageInfoPage Test">
+	<!-- <test name="ProductPageInfoPage Test">
 		<classes>
 			<class name="com.qa.opencart.tests.ProductPageInfoTest" />
 		</classes>
