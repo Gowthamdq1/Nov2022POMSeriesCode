@@ -32,7 +32,7 @@ public class AccountsPage {
 	}
 	public String getAccountsPageURL() {
 		String url = eleUtil.waitForURLContainsAndFetch(AppConstants.DEFAULT_SHORT_TIME_OUT, AppConstants.ACCOUNT_PAGE_URL_FRACTION_VALUE);
-		System.out.println("Acc page url : "+url);
+		System.out.println("Acc page url is : "+url);
 		return url;
 	}
 	public boolean isLogOutLinkExist() {
