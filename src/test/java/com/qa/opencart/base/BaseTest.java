@@ -1,12 +1,14 @@
-package com.qa.opencart.base;
+	package com.qa.opencart.base;
 
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 
+import com.beust.jcommander.Parameter;
 import com.qa.opencart.factory.DriverFactory;
 import com.qa.opencart.pages.AccountsPage;
 import com.qa.opencart.pages.LoginPage;
@@ -27,10 +29,17 @@ public class BaseTest {
 	
 	protected SoftAssert softAssert;
 	
+	@Parameters({"browser"})
 	@BeforeTest
-	public void setup() {
+	public void setup(String browserName) {
 		df = new DriverFactory();
 		prop=df.initProp();
+		
+		//The below code to set the parameter data into the property at run time
+		if(browserName!=null) {
+			prop.setProperty("browser", browserName);
+		}
+		
 		driver = df.initDriver(prop);
 		loginPage=new LoginPage(driver);
 		
