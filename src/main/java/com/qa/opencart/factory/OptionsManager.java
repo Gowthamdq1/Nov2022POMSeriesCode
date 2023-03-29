@@ -22,6 +22,13 @@ public class OptionsManager {
 		co = new ChromeOptions();
 		co.addArguments("--remote-allow-origins=*");
 		
+		if(Boolean.parseBoolean(prop.getProperty("remote"))) {
+			co.setBrowserVersion(prop.getProperty("browserversion"));
+			co.setCapability("browsername", "chrome");
+			co.setCapability("enableVNC", true);
+			co.setCapability("name", prop.getProperty("testcasename"));
+		}
+		
 		if (Boolean.parseBoolean(prop.getProperty("headless").trim())) {
 			System.out.println("Running chrome in headless");
 			co.addArguments("--headless");
